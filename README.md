@@ -1,9 +1,9 @@
-[TeleAI Showcase.webM](https://github.com/user-attachments/assets/1f9f4019-ccba-4a36-a547-633432492c5f)
+[TeleAI Showcase.webm](https://github.com/user-attachments/assets/1f9f4019-ccba-4a36-a547-633432492c5f)
 # TeleAI
 
 **TeleAI** is a video processing chatbot that allows users to upload a video and chat about its content. Built using Streamlit, Google Generative AI, and dotenv, TeleAI provides an intuitive interface where users can ask questions, get insights, and interact with video content in a conversational manner.
 
-__website:__ *tele-ai.streamlit.app*
+__website:__ https://www.tele-ai.streamlit.app
 ## Features
 
 - **Video Upload:** Users can upload a video and have it processed by the chatbot.
