@@ -7,7 +7,16 @@ from pytube import YouTube
 from pytube.innertube import _default_clients
 from pytube import cipher
 import re
-import os
+
+# Load environment variables
+load_dotenv()
+
+# Configure the Gemini API with your API key
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+# Ensure the temp folder exists
+temp_folder = "temp_videos"
+os.makedirs(temp_folder, exist_ok=True)
 
 # Update default clients to handle YouTube's changes
 client_version = "19.08.35"
@@ -51,13 +60,10 @@ def get_throttling_function_name(js: str) -> str:
 # Override the original get_throttling_function_name with the updated one
 cipher.get_throttling_function_name = get_throttling_function_name
 
-
 def download_youtube_video(url):
     """Downloads a YouTube video and saves it as 'temp_video.mp4' in the 'temp_videos' folder."""
     try:
         # Define the path for the downloaded video
-        temp_folder = "temp_videos"
-        os.makedirs(temp_folder, exist_ok=True)
         temp_video_path = os.path.join(temp_folder, "temp_video.mp4")
         
         # Create a YouTube object
@@ -76,16 +82,6 @@ def download_youtube_video(url):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None  # Return None if an error occurs
-
-# Load environment variables
-load_dotenv()
-
-# Configure the Gemini API with your API key
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
-# Ensure the temp folder exists
-temp_folder = "temp_videos"
-os.makedirs(temp_folder, exist_ok=True)
 
 def upload_to_gemini(path, mime_type=None):
     """Uploads the given file to Gemini and returns the file object."""
@@ -118,7 +114,7 @@ generation_config = {
 model = genai.GenerativeModel(
     model_name="gemini-1.5-flash",
     generation_config=generation_config,
-    system_instruction="nice and formal tone, as you are a professional TeleAI bot which allow users to get information about their uploaded video, you provide to the point answers with exact details"
+    system_instruction="nice and formal tone, as you are a professional TeleAI bot which allows users to get information about their uploaded video, you provide to the point answers with exact details"
 )
 
 # Streamlit app UI
@@ -218,5 +214,10 @@ with col2:
             <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
                 <div style="max-width: 70%; background-color: #f1f0f0; color: black; padding: 10px; border-radius: 10px; border-top-left-radius: 0px;">
                     {chat['bot']}
+                </div>
+            </div>
             """, unsafe_allow_html=True)
 
+        # Include a button to clear chat history
+        if st.button("Clear Chat History"):
+            st.session_state.chat_history = []
