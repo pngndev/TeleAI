@@ -8,15 +8,11 @@ load_dotenv()
 # Fetch the API key from environment variables
 api_key = os.getenv('YOUTUBE_API_KEY')
 
-# Path to the cookies file
-cookies_file = "/cookies.txt"
-
 def download_youtube_video(link):
     ydl_opts = {
         'format': 'best',
         'outtmpl': os.path.join("temp_videos", "temp_video.mp4"),
-        'api_key': api_key,
-        'cookies': cookies_file  # Add the cookies file option here
+        'api_key': api_key
     }
     
     with YoutubeDL(ydl_opts) as ydl:
