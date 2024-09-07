@@ -78,7 +78,8 @@ with col1:
         st.subheader("Upload or Download Video")
         
         # Input for YouTube URL
-        youtube_url = st.text_input("Enter YouTube video URL (or leave empty to upload file):")
+        youtube_url = st.text_input('''Enter YouTube video URL (or leave empty to upload file):
+        Note If you are checking out the demo then this function will not work due to yt dlp robot detection error''')
         
         if youtube_url:
             # Download the YouTube video
