@@ -14,7 +14,7 @@ def download_youtube_video(link):
         'outtmpl': os.path.join("temp_videos", "temp_video.mp4"),
         'api_key': api_key
     }
-    
+
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download([link])
 
