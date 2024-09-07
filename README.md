@@ -3,7 +3,7 @@
 
 **TeleAI** is a video processing chatbot that allows users to upload a video and chat about its content. Built using Streamlit, Google Generative AI, dotenv and yt-dlp, TeleAI provides an intuitive interface where users can ask questions, get insights, and interact with video content in a conversational manner.
 
-__website:__ *https://tele-ai.streamlit.app/* __Note: The youtube link feature doesnt works on the server, to use it you have to set the git repo in your computer__
+__website:__ *https://tele-ai.streamlit.app/* _Note: The youtube link feature doesnt works on the server, to use it you have to set the git repo in your computer_
 ## Features
 
 - **Video Upload:** Users can upload a video and have it processed by the chatbot.
