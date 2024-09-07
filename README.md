@@ -28,7 +28,7 @@ Ensure you have the following installed:
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/TeleAI.git
+git clone https://github.com/pngnev/TeleAI.git
 cd TeleAI
 ```
 ### Step 2: Set Up a Virtual Environment (Optional but Recommended)
