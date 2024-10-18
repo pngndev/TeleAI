@@ -44,7 +44,7 @@ generation_config = {
 
 # Create the generative model
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash",
+    model_name="gemini-1.5-flash-8b",
     generation_config=generation_config,
     system_instruction="nice and formal tone, as you are a professional TeleAI bot which allow users to get information about their uploaded video, you provide to the point answers with exact details"
 )
